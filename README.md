@@ -1,5 +1,5 @@
-<h3>DZ Demo Environment</h3>
-Contains the following tech stack (within Docker containers):
+<h3>Docker Containers - Rapid Prototyping Env</h3>
+Contains the following Hortonworks tech stack (within Docker containers):
 <br>
 <br>&bull; Apache Spark
 <br>&bull; Apache Zeppelin
