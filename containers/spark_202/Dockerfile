@@ -14,4 +14,7 @@ RUN tar -xzvf zeppelin.tgz
 RUN mv ${ZEPPELIN_VER} /zeppelin
 RUN echo "export SPARK_HOME=/spark" >> /zeppelin/conf/zeppelin-env.sh
 
+ADD assets /assets
+ADD assets/start_zeppelin.sh /start_zeppelin.sh
+
 #CMD source /root/.bashrc; cd /spark; /zeppelin/bin/zeppelin.sh run
