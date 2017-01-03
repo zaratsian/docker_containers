@@ -5,7 +5,7 @@ Contains the following Hortonworks tech stack (within Docker containers):
 <br>&bull; Apache Zeppelin
 <br>&bull; Apache NiFi
 <br>&bull; Apache Kafka
-<br>&bull; Apache Solr
+<br>&bull; Apache Solr (not yet)
 <br>&bull; Apache HBase
 <br>&bull; Apache Phoenix
 <br>
