@@ -1,11 +1,12 @@
 
-docker stop spark_162 spark_202 nifi kafka phoenix
-docker rm -f spark_162 spark_202 nifi kafka phoenix
+docker stop spark_162 spark_202 nifi kafka phoenix storm
+docker rm -f spark_162 spark_202 nifi kafka phoenix storm
 
 docker run -it -d -p 8079:8080 -p 4040:4040 --hostname spark_202 --net dev --name spark_202 spark_202
 docker run -it -d -p 8080:8080 --hostname nifi --net dev --name nifi nifi
 docker run -it -d --hostname kafka --net dev --name kafka kafka
 docker run -it -d -p 8765:8765 --hostname phoenix --net dev --name phoenix phoenix
+docker run -it -d -p 8090:8080 --hostname storm --net dev --name storm storm
 
 
 # Spark 2.0.2
@@ -32,6 +33,9 @@ docker exec kafka pip install kafka
 # Phoenix
 
 
+# Storm
+
+
 echo "*****************************************************"
 echo "*"
 echo "*  Spark Container has been started..."
@@ -39,6 +43,7 @@ echo "*"
 echo "*  Port (NiFi):     8080"
 echo "*  Port (Zeppelin): 8079"
 echo "*  Port (Phoenix):  8765"
+echo "*  Port (Storm):    8090"
 echo "*"
 echo "*  Usage: docker exec -it kafka bash"
 echo "*"
