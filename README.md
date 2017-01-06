@@ -6,5 +6,5 @@ Contains the following Hortonworks tech stack (within Docker containers):
 <br>&bull; Apache Kafka
 <br>&bull; Apache HBase & Apache Phoenix
 <br>&bull; Apache Storm
-<br>&bull; Apache Solr (not yet)
+<br>&bull; Apache Solr
 <br>
