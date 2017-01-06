@@ -1,0 +1,23 @@
+
+# Start Solr
+/solr/bin/solr start -p 8983 -d data_driven_schema_configs -s 1 -rf 1
+
+-d is the config directory
+-s is the number of shards
+-rf is the replication factor
+-p is the port at which Solr is running
+
+
+# Check status
+/solr/bin/solr status
+
+
+# Create Collection
+/solr/bin/solr create -c <collection_name>
+
+
+# Index Documents
+/solr/bin/post -c <collection_name> /tmp/mydocs/*.xml
+
+
+
