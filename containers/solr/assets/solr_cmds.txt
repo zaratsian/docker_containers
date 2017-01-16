@@ -1,11 +1,16 @@
 
+# Security:  https://lucidworks.com/blog/2015/08/17/securing-solr-basic-auth-permission-rules/
+
+
 # Start Solr
-/solr/bin/solr start -p 8983 -d data_driven_schema_configs -s 1 -rf 1
+/solr/bin/solr start -c -z localhost:2181 -p 8983 -d data_driven_schema_configs -s 1 -rf 1
 
 -d is the config directory
 -s is the number of shards
 -rf is the replication factor
 -p is the port at which Solr is running
+-c specified SolrCloud mode (-cloud can also be used)
+-z is the zookeeper host and port
 
 
 # Check status
@@ -18,6 +23,7 @@
 
 # Index Documents
 /solr/bin/post -c <collection_name> /tmp/mydocs/*.xml
+
 
 
 
