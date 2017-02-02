@@ -4,5 +4,7 @@ docker build -t spark_202 containers/spark_202
 docker build -t kafka containers/kafka
 docker build -t nifi containers/nifi
 docker build -t phoenix containers/phoenix
+docker build -t solr containers/solr
 
-#docker build -t solr containers/solr
+#docker build -t storm containers/storm
+
