@@ -1,0 +1,29 @@
+
+#####################################################################################
+#
+#   Streamparse
+#
+#####################################################################################
+
+
+# Create new project:
+sparse quickstart <project_name>
+
+
+# Run project:
+cd <project_name>
+sparse run
+
+
+# Help
+sparse -h
+
+
+# Project Structure:
+config.json     Configuration information for all of your topologies.
+fabfile.py      Optional custom fabric tasks.
+project.clj     leiningen project file (can be used to add external JVM dependencies).
+src/            Python source files (bolts/spouts/etc.) for topologies.
+tasks.py        Optional custom invoke tasks.
+topologies/     Contains topology definitions written using the Topology DSL.
+virtualenvs/    Contains pip requirements files used to install dependencies on remote Storm servers.
