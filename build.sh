@@ -5,6 +5,5 @@ docker build -t kafka containers/kafka
 docker build -t nifi containers/nifi
 docker build -t phoenix containers/phoenix
 docker build -t solr containers/solr
-
-#docker build -t storm containers/storm
+docker build -t storm containers/storm
 
