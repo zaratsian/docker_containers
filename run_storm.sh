@@ -4,6 +4,7 @@ docker rm -f storm
 
 docker run -it -d -p 8090:8080 --hostname storm --net dev --name storm storm
 
+docker exec storm export LEIN_ROOT=/bin/lein
 
 echo "*****************************************************"
 echo "*"
