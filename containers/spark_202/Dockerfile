@@ -17,6 +17,7 @@ RUN mv ${ZEPPELIN_VER} /zeppelin
 RUN echo "export SPARK_HOME=/spark" >> /zeppelin/conf/zeppelin-env.sh
 
 # Install Anaconda
+RUN yum -y install bzip2
 RUN wget https://repo.continuum.io/archive/Anaconda2-4.3.0-Linux-x86_64.sh -O /Anaconda.sh
 RUN chmod +x /Anaconda.sh
 
