@@ -11,8 +11,8 @@ docker exec spark_210 wget https://archive.apache.org/dist/kafka/0.10.1.1/kafka_
 docker exec spark_210 tar -xzvf /kafka.tgz
 docker exec spark_210 mv kafka_2.10-0.10.1.1 /kafka
 
-docker cp containers/kafka/assets /assets
-docker cp containers/kafka/assets/start_kafka.sh /start_kafka.sh
+docker cp containers/kafka/assets/start_kafka.sh spark_210:/start_kafka.sh
+docker cp containers/kafka/assets/stream_kafka.py spark_210:/stream_kafka.py
 
 
 echo "*****************************************************"
