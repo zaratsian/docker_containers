@@ -9,6 +9,10 @@ docker exec spark_202 wget http://central.maven.org/maven2/org/apache/phoenix/ph
 docker exec spark_202 rm -rf /zeppelin/notebook
 docker exec spark_202 cp -rf /assets/notebook/ /zeppelin/notebook/
 
+# Install pip
+docker exec spark_202 curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+docker exec spark_202 python get-pip.py
+
 
 echo "*****************************************************"
 echo "*"
