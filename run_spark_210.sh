@@ -11,6 +11,10 @@ docker exec spark_210 wget https://archive.apache.org/dist/kafka/0.10.1.1/kafka_
 docker exec spark_210 tar -xzvf /kafka.tgz
 docker exec spark_210 mv kafka_2.10-0.10.1.1 /kafka
 
+# Install pip
+docker exec spark_210 curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+docker exec spark_210 python get-pip.py
+
 docker cp containers/kafka/assets/start_kafka.sh spark_210:/start_kafka.sh
 docker cp containers/kafka/assets/stream_kafka.py spark_210:/stream_kafka.py
 
