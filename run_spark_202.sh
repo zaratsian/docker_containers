@@ -9,6 +9,16 @@ docker exec spark_202 wget http://central.maven.org/maven2/org/apache/phoenix/ph
 docker exec spark_202 rm -rf /zeppelin/notebook
 docker exec spark_202 cp -rf /assets/notebook/ /zeppelin/notebook/
 
+
+# Install R (for SparkR jobs)
+#docker exec spark_202 wget https://download2.rstudio.org/rstudio-server-rhel-1.0.44-x86_64.rpm
+#docker exec spark_202 yum -y install --nogpgcheck rstudio-server-rhel-1.0.44-x86_64.rpm
+#docker exec spark_202 /usr/lib/rstudio-server/bin/rstudio-server verify-installation
+#docker exec spark_202 /usr/lib/rstudio-server/bin/rstudio-server stop
+#docker exec spark_202 /usr/lib/rstudio-server/bin/rstudio-server start
+# This will start the RServer: /usr/lib/rstudio-server/bin/rserver
+
+
 # Install pip
 docker exec spark_202 curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
 docker exec spark_202 python get-pip.py
