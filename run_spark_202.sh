@@ -12,7 +12,7 @@ docker exec spark_202 cp -rf /assets/notebook/ /zeppelin/notebook/
 
 # Install R (for SparkR jobs)
 #docker exec spark_202 yum -y update
-#docker exec yum install -y R R-devel libcurl-devel openssl-devel
+#docker exec spark_202 yum install -y R R-devel libcurl-devel openssl-devel
 #docker exec spark_202 yum install -y initscripts
 #docker exec spark_202 wget https://download2.rstudio.org/rstudio-server-rhel-1.0.44-x86_64.rpm
 #docker exec spark_202 yum -y install --nogpgcheck rstudio-server-rhel-1.0.44-x86_64.rpm
