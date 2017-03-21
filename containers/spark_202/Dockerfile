@@ -25,7 +25,7 @@ RUN wget https://repo.continuum.io/archive/Anaconda2-4.3.0-Linux-x86_64.sh -O /A
 RUN chmod +x /Anaconda.sh
 
 # Install R
-yum install -y R R-devel libcurl-devel openssl-devel
+RUN yum install -y R R-devel libcurl-devel openssl-devel
 
 # Install Maven
 RUN wget https://archive.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz -O /apache-maven-3.3.9-bin.tar.gz
