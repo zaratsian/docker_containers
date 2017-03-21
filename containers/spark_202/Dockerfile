@@ -5,6 +5,9 @@ ARG ZEPPELIN_VER=zeppelin-0.6.2-bin-all
 ARG SPARK_URL=https://archive.apache.org/dist/spark/spark-2.0.2/spark-2.0.2-bin-hadoop2.7.tgz
 ARG SPARK_VER=spark-2.0.2-bin-hadoop2.7
 
+RUN yum install -y epel-release 
+RUN yum update -y
+
 # Install Spark
 RUN wget ${SPARK_URL} -O /spark.tgz
 RUN tar -xzvf spark.tgz
@@ -20,6 +23,9 @@ RUN echo "export SPARK_HOME=/spark" >> /zeppelin/conf/zeppelin-env.sh
 RUN yum -y install bzip2
 RUN wget https://repo.continuum.io/archive/Anaconda2-4.3.0-Linux-x86_64.sh -O /Anaconda.sh
 RUN chmod +x /Anaconda.sh
+
+# Install R
+yum install -y R R-devel libcurl-devel openssl-devel
 
 # Install Maven
 RUN wget https://archive.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz -O /apache-maven-3.3.9-bin.tar.gz
