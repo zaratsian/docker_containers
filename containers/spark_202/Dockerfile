@@ -19,7 +19,9 @@ RUN tar -xzvf zeppelin.tgz
 RUN mv ${ZEPPELIN_VER} /zeppelin
 RUN echo "export SPARK_HOME=/spark" >> /zeppelin/conf/zeppelin-env.sh
 
-# Install Anaconda
+# Install Anaconda (also install pip in case Anaconda is not used)
+RUN curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+RUN python get-pip.py
 RUN yum -y install bzip2
 RUN wget https://repo.continuum.io/archive/Anaconda2-4.3.0-Linux-x86_64.sh -O /Anaconda.sh
 RUN chmod +x /Anaconda.sh
