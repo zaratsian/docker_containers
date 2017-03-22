@@ -20,4 +20,5 @@ echo "*"
 echo "*  Usage: docker exec -it spark_202 bash"
 echo "*"
 echo "*****************************************************"
-
+echo ""
+echo "Manually install knitr for SparkR"
