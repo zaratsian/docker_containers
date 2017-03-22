@@ -26,7 +26,7 @@ RUN yum -y install bzip2
 RUN wget https://repo.continuum.io/archive/Anaconda2-4.3.0-Linux-x86_64.sh -O /Anaconda.sh
 RUN chmod +x /Anaconda.sh
 
-# Install R
+# Install R (then, manually install knitr)
 RUN yum install -y R R-devel libcurl-devel openssl-devel
 
 # Install Maven
