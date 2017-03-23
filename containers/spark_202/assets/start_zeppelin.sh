@@ -1,1 +1,1 @@
-/zeppelin/bin/zeppelin.sh run
+/zeppelin/bin/zeppelin-daemon.sh start
