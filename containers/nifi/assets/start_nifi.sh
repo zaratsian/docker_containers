@@ -5,5 +5,5 @@ echo "Starting NiFi"
 #tail -f /nifi/logs/nifi-app.log
 echo ""
 echo ""
-echo "NiFi started on Port 8080"
+echo "NiFi initiated, should start up in a minute on port 1985..."
 echo ""
