@@ -18,5 +18,13 @@ curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
 python get-pip.py
 pip install kafka
 echo ""
+echo "#######################"
+echo "#  Startup Complete!"
+echo "#######################"
 echo ""
-echo "Startup Complete!"
+echo 'CMD Line Producer:'
+echo 'echo "DZ Kafka Event at $(date)" | ./bin/kafka-console-producer.sh --broker-list kafkahost:9092 --topic dztopic1 > /dev/null'
+echo ""
+echo "CMD Line Consumer:'
+echo "./bin/kafka-console-consumer.sh --zookeeper zkhost:2181 --topic dztopic1 --from-beginning"
+echo ""
