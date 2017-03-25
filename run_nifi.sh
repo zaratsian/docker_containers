@@ -2,9 +2,9 @@
 docker stop nifi
 docker rm -f nifi
 
-docker run -it -d -p 8080:1985 --hostname nifi --net dev --name nifi nifi
+docker run -it -d -p 1985:1985 --hostname nifi --net dev --name nifi nifi
 
-docker cp containers/nifi/assets/start_nifi.sh spark_210:/.
+docker cp containers/nifi/assets/start_nifi.sh nifi:/.
 
 echo "*****************************************************"
 echo "*"
