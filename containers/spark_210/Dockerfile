@@ -1,6 +1,6 @@
 FROM base
-ARG ZEPPELIN_URL=https://archive.apache.org/dist/zeppelin/zeppelin-0.6.2/zeppelin-0.6.2-bin-all.tgz
-ARG ZEPPELIN_VER=zeppelin-0.6.2-bin-all
+ARG ZEPPELIN_URL=https://archive.apache.org/dist/zeppelin/zeppelin-0.7.0/zeppelin-0.7.0-bin-all.tgz
+ARG ZEPPELIN_VER=zeppelin-0.7.0-bin-all
 
 ARG SPARK_URL=https://archive.apache.org/dist/spark/spark-2.1.0/spark-2.1.0-bin-hadoop2.7.tgz
 ARG SPARK_VER=spark-2.1.0-bin-hadoop2.7
