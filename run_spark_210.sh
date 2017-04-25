@@ -11,6 +11,8 @@ docker exec spark_210 tar -xzvf /kafka.tgz
 docker exec spark_210 mv kafka_2.10-0.10.1.1 /kafka
 docker cp containers/kafka/assets/start_kafka.sh spark_210:/.
 docker cp containers/kafka/assets/stream_kafka.py spark_210:/.
+docker cp ~/Dropbox/data/nyc_taxi_data.csv spark_210:/.
+
 
 echo "*****************************************************"
 echo "*"
