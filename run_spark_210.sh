@@ -6,12 +6,24 @@ docker run -it -d -p 8079:8080 -p 4040:4040 --hostname spark_210 --net dev --nam
 docker cp containers/spark_210/assets/log4j.properties spark_210:/spark/conf/log4j.properties
 
 # Install Kafka (for structured streaming and other use cases)
-docker exec spark_210 wget https://archive.apache.org/dist/kafka/0.10.1.1/kafka_2.10-0.10.1.1.tgz -O /kafka.tgz
-docker exec spark_210 tar -xzvf /kafka.tgz
-docker exec spark_210 mv kafka_2.10-0.10.1.1 /kafka
+#docker exec spark_210 wget https://archive.apache.org/dist/kafka/0.10.1.1/kafka_2.10-0.10.1.1.tgz -O /kafka.tgz
+#docker exec spark_210 tar -xzvf /kafka.tgz
+#docker exec spark_210 mv kafka_2.10-0.10.1.1 /kafka
+
+# Install Tensorflow
+docker exec spark_210 pip install --upgrade tensorflow
+docker exec spark_210 pip install Pillow
+docker exec spark_210 yum install -y python-devel
+docker exec spark_210 yum install -y libevent-devel
+docker exec spark_210 pip install matplotlib
+
+# Copy Assets
 docker cp containers/kafka/assets/start_kafka.sh spark_210:/.
 docker cp containers/kafka/assets/stream_kafka.py spark_210:/.
 docker cp ~/Dropbox/data/nyc_taxi_data.csv spark_210:/.
+#docker cp ~/Downloads/imagenet_fall11_urls.tgz spark_210:/.
+#docker cp ~/Downloads/inception-2015-12-05.tgz spark_210:/tmp/.
+docker cp ~/Dropbox/code/python/flask_spark spark_210:/flask_spark
 
 
 echo "*****************************************************"
