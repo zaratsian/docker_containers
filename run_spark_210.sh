@@ -1,7 +1,7 @@
 docker stop spark_162 spark_202 spark_210
 docker rm -f spark_162 spark_202 spark_210
 
-docker run -it -d -p 8079:8080 -p 4040:4040 --hostname spark_210 --net dev --name spark_210 spark_210
+docker run -it -d -p 8079:8080 -p 4040:4040 p 4444:4444 --hostname spark_210 --net dev --name spark_210 spark_210
 
 docker cp containers/spark_210/assets/log4j.properties spark_210:/spark/conf/log4j.properties
 
