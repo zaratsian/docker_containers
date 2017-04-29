@@ -16,6 +16,9 @@ docker exec spark_210 pip install Pillow
 docker exec spark_210 yum install -y python-devel
 docker exec spark_210 yum install -y libevent-devel
 docker exec spark_210 pip install matplotlib
+docker exec spark_210 pip install flask
+docker exec spark_210 pip install flask_login
+docker exec spark_210 pip install requests
 
 # Copy Assets
 docker cp containers/kafka/assets/start_kafka.sh spark_210:/.
