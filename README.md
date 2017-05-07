@@ -8,3 +8,9 @@ Contains the following Hortonworks tech stack (within Docker containers):
 <br>&bull; Apache Storm
 <br>&bull; Apache Solr
 <br>
+<br>
+<br>Docker cleanup:
+<br>docker system prune
+<br>docker volume prune
+<br>docker volume rm $(docker volume ls -qf dangling=true)
+<br>
