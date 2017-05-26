@@ -18,7 +18,7 @@ RUN mv /solr-5.5.3 /solr
 #
 ##########################################################################################
 
-RUN wget http://www-eu.apache.org/dist/zookeeper/stable/zookeeper-3.4.9.tar.gz -O /zookeeper.tgz
+RUN wget http://www-eu.apache.org/dist/zookeeper/stable/zookeeper-3.4.10.tar.gz -O /zookeeper.tgz
 RUN tar -xzvf /zookeeper.tgz
 RUN mv /zookeeper-3.4.9 /zookeeper
 RUN mkdir /zookeeper/data
