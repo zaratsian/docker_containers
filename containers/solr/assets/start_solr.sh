@@ -3,7 +3,9 @@ echo ""
 echo "Starting Zookeeper..."
 sleep 2
 /zookeeper/bin/zkServer.sh start
-sleep 10
+echo ""
+echo "Sleeping for 15 seconds while ZK starts up..."
+sleep 15
 echo ""
 echo ""
 echo "Starting Solr in Cloud mode on Port 8983 (and trying to connect to zookeeper port 2181)..."
