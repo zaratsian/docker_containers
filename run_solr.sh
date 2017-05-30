@@ -2,7 +2,13 @@
 docker stop solr
 docker rm -f solr
 
-docker run -it -d -p 8983:8983 -p 12181:2181 --hostname solr --net dev --name solr solr
+docker run -it -d -p 8983:8983 -p 12181:2181 -p 18080:8080 -p 19999:9999 --hostname solr --net dev --name solr solr
+
+# 8983 is Solr
+# 2181 is Zookeeper
+# 8080 is NiFi
+# 9999 is Reserve port
+
 
 # Copy Solr Assets
 docker cp containers/solr/assets/start_solr.sh solr:/.
