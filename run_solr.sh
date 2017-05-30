@@ -4,6 +4,11 @@ docker rm -f solr
 
 docker run -it -d -p 18983:8983 -p 12181:2181 --hostname solr --net dev --name solr solr
 
+# Copy Solr Assets
+docker cp containers/solr/assets/start_solr.sh solr:/.
+docker cp containers/solr/assets/start_zk.sh solr:/.
+docker cp containers/solr/assets/solr_cmds.txt solr:/.
+
 # Download and Install Banana UI for Solr
 docker exec solr git clone https://github.com/lucidworks/banana.git
 docker exec solr cp -r /banana /solr/server/solr-webapp/webapp/banana
