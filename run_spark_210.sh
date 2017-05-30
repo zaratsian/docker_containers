@@ -5,8 +5,8 @@ docker run -it -d -p 18080:8080 -p 14040:4040 -p 14444:4444 -p 12181:2181 --host
 
 
 # Install pip
-docker exec spark_202 curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
-docker exec spark_202 python get-pip.py
+docker exec spark_210 curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+docker exec spark_210 python get-pip.py
 
 # Install Kafka (for structured streaming and other use cases)
 docker exec spark_210 wget https://archive.apache.org/dist/kafka/0.10.1.1/kafka_2.10-0.10.1.1.tgz -O /kafka.tgz
