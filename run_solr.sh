@@ -38,6 +38,11 @@ docker exec solr mv /solr/server/solr-webapp/webapp/banana/src/app/dashboards/de
 docker exec solr wget https://raw.githubusercontent.com/hortonworks/data-tutorials/master/tutorials/hdp/hdp-2.5/analyzing-social-media-and-customer-sentiment-with-apache-nifi-and-hdp-search/assets/default.json
 docker exec solr cp /default.json /solr/server/solr-webapp/webapp/banana/src/app/dashboards/default.json
 
+# NiFi
+docker exec solr wget http://mirror.cc.columbia.edu/pub/software/apache/nifi/1.2.0/nifi-1.2.0-bin.tar.gz
+docker exec solr tar -xzvf /nifi-1.2.0-bin.tar.gz
+docker cp assets/core-site.xml solr:/.
+docker cp assets/hdfs-site.xml solr:/.
 
 echo "****************************************************************"
 echo "*"
@@ -45,10 +50,12 @@ echo "*  Solr Container has been started..."
 echo "*"
 echo "*  Port (Solr):      18983"
 echo "*  Port (Zookeeper): 12181"
+echo "*  Port (NiFi):      18080"
 echo "*"
 echo "*"
 echo "*  Banana UI:  http://localhost:8983/solr/banana/src/index.html"
 echo "*"
+echo "*  Start NiFi: /nifi-1.2.0/bin/nifi.sh start"
 echo "*"
 echo "*  Usage: docker exec -it solr bash"
 echo "*"
