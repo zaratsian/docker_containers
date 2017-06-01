@@ -22,9 +22,9 @@ echo "#######################"
 echo "#  Startup Complete!"
 echo "#######################"
 echo ""
-echo 'CMD Line Producer:'
-echo 'echo "DZ Kafka Event at $(date)" | ./bin/kafka-console-producer.sh --broker-list kafkahost:9092 --topic dztopic1 > /dev/null'
+echo "CMD Line Producer:"
+echo "echo "DZ Kafka Event at $(date)" | ./bin/kafka-console-producer.sh --broker-list kafkahost:9092 --topic dztopic1 > /dev/null"
 echo ""
-echo "CMD Line Consumer:'
+echo "CMD Line Consumer:"
 echo "./bin/kafka-console-consumer.sh --zookeeper zkhost:2181 --topic dztopic1 --from-beginning"
 echo ""
