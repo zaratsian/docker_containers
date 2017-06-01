@@ -19,6 +19,8 @@ docker exec nifi tar -xzvf /kafka.tgz
 docker exec nifi mv kafka_2.10-0.10.1.1 /kafka
 docker cp containers/kafka/assets/start_kafka.sh nifi:/.
 docker cp containers/kafka/assets/stream_kafka.py nifi:/.
+docker cp ~/hortonworks/core-site.xml nifi:/.
+docker cp ~/hortonworks/hdfs-site.xml nifi:/.
 
 
 echo "*****************************************************"
