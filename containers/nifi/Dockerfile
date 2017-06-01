@@ -1,6 +1,6 @@
 FROM base
-ARG NIFI_URL=https://archive.apache.org/dist/nifi/1.1.0/nifi-1.1.0-bin.tar.gz
-ARG NIFI_VER=nifi-1.1.0
+ARG NIFI_URL=https://archive.apache.org/dist/nifi/1.2.0/nifi-1.2.0-bin.tar.gz
+ARG NIFI_VER=nifi-1.2.0
 
 RUN wget ${NIFI_URL} -O /nifi.tgz
 RUN tar -xzvf /nifi.tgz
