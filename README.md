@@ -1,7 +1,7 @@
 <h3>Docker Containers - Rapid Prototyping Env</h3>
 Contains the following Hortonworks tech stack (within Docker containers):
 <br>
-<br>&bull; Apache Spark & Apache Zeppelin
+<br>&bull; Apache Spark & Apache Zeppelin (multiple versions - 1.6.2, 2.0.0, 2.1.0)
 <br>&bull; Apache NiFi
 <br>&bull; Apache Kafka
 <br>&bull; Apache HBase & Apache Phoenix
