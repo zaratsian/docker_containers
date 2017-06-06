@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Uninstall Script
+# Uninstall Script (https://github.com/docker/toolbox/blob/master/osx/uninstall.sh)
 
 if [ "${USER}" != "root" ]; then
 	echo "$0 must be run as root!"
