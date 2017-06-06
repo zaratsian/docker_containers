@@ -2,7 +2,7 @@
 docker stop nifi
 docker rm -f nifi
 
-docker run -it -d -p 1985:1985 -p 19999:19999 --hostname nifi --net dev --name nifi nifi
+docker run -it -d -p 1985:1985 -p 9092:9092 -p 19999:19999 --hostname nifi --net dev --name nifi nifi
 
 # Port 19999 is used as reserve port
 
