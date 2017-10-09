@@ -8,6 +8,7 @@ docker exec sparkling_water /bin/sh -c 'fabmanager create-admin --app superset <
 
 docker exec sparkling_water superset runserver &
 
+docker cp containers/spark_sparkling_water/assets sparkling_water:/.
 
 echo "*****************************************************"
 echo "*"
