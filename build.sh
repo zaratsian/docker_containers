@@ -10,3 +10,4 @@ docker build -t solr containers/solr
 docker build -t storm containers/storm
 docker build -t superset containers/superset
 docker build -t airflow containers/airflow
+docker build -t sparkling_water containers/spark_sparkling_water
