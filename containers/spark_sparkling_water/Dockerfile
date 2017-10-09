@@ -108,7 +108,7 @@ RUN superset init
 
 RUN wget ${H2O_SPARKLING_WATER_URL} -O /sparkling_water.zip
 RUN unzip /sparkling_water.zip
-RUM rm /sparkling_water.zip
+RUN rm /sparkling_water.zip
 
 ######################################################################################################
 #
