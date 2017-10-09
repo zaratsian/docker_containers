@@ -44,6 +44,7 @@ RUN yum install -y git
 RUN wget ${SPARK_URL} -O /spark.tgz
 RUN tar -xzvf spark.tgz
 RUN mv ${SPARK_VER} /spark
+RUN rm /spark.tgz
 
 ######################################################################################################
 #
@@ -55,6 +56,7 @@ RUN wget ${ZEPPELIN_URL} -O /zeppelin.tgz
 RUN tar -xzvf zeppelin.tgz
 RUN mv ${ZEPPELIN_VER} /zeppelin
 RUN echo "export SPARK_HOME=/spark" >> /zeppelin/conf/zeppelin-env.sh
+RUN rm /zeppelin.tgz
 
 ######################################################################################################
 #
@@ -105,6 +107,7 @@ RUN superset init
 
 RUN wget ${H2O_SPARKLING_WATER_URL} -O /sparkling_water.zip
 RUN unzip /sparkling_water.zip
+RUM rm /sparkling_water.zip
 
 ######################################################################################################
 #
