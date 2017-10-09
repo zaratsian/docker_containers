@@ -66,6 +66,7 @@ RUN rm /zeppelin.tgz
 
 RUN curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
 RUN python get-pip.py
+RUN rm get-pip.py
 RUN yum -y install bzip2
 RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     wget --quiet ${ANACONDA_URL} -O ~/anaconda.sh && \
@@ -117,6 +118,7 @@ RUM rm /sparkling_water.zip
 
 ADD assets /assets
 ADD assets/start_zeppelin.sh /start_zeppelin.sh
+ADD assets/admin.config /admin.config
 
 
 #CMD source /root/.bashrc; cd /spark; /zeppelin/bin/zeppelin-daemon.sh start; superset runserver
