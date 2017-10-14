@@ -16,8 +16,12 @@ echo "Starting Apache Zeppelin on Port 19090..."
 sleep 5
 docker exec sparkling_water /zeppelin/bin/zeppelin-daemon.sh start &
 
+# Setup a few dependancies are setup for H2O Sparkling Water
 docker exec sparkling_water export SPARK_HOME=/spark
+docker exec sparkling_water pip install tabulate
+docker exec sparkling_water pip install future
 
+# Copy assets into container
 docker cp containers/spark_sparkling_water/assets sparkling_water:/.
 
 echo ""
