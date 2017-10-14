@@ -109,10 +109,10 @@ RUN superset init
 RUN wget ${H2O_SPARKLING_WATER_URL} -O /sparkling_water.zip
 RUN unzip /sparkling_water.zip
 RUN rm /sparkling_water.zip
-RUN pip install tabulate
-RUN pip install future
-RUN export SPARK_HOME=/spark
-RUN export MASTER="local[*]"
+#RUN pip install tabulate
+#RUN pip install future
+#RUN export SPARK_HOME=/spark
+#RUN export MASTER="local[*]"
 
 ######################################################################################################
 #
