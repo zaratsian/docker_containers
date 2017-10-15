@@ -20,10 +20,9 @@ sleep 5
 docker exec sparkling_water /zeppelin/bin/zeppelin-daemon.sh start &
 
 # Setup a few dependancies are setup for H2O Sparkling Water
-docker exec echo "" >> /root/.bashrc
-docker exec echo "export SPARK_HOME=/spark" >> /root/.bashrc
-docker exec sparkling_water conda install tabulate
-docker exec sparkling_water conda install future
+docker exec sparkling_water sh -c "echo '' >> /root/.bashrc"
+docker exec sparkling_water sh -c "echo 'export SPARK_HOME=/spark' >> /root/.bashrc"
+docker exec sparkling_water sh -c "/pip_install_packages.sh"
 
 # Copy assets into container
 docker cp containers/spark_sparkling_water/assets sparkling_water:/.
