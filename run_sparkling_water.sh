@@ -1,4 +1,7 @@
 
+docker stop sparkling_water
+docker rm sparkling_water
+
 docker run -it -d -p 18088:8088 -p 19090:8080 -p 54321:54321 -p 14444:4444 -p 15555:5555 --hostname sparkling_water --net dev --name sparkling_water sparkling_water
 
 #echo ""
