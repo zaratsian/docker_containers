@@ -18,6 +18,9 @@ ARG ZEPPELIN_VER=zeppelin-0.7.0-bin-all
 
 ARG H2O_SPARKLING_WATER_URL=http://h2o-release.s3.amazonaws.com/sparkling-water/rel-2.1/14/sparkling-water-2.1.14.zip
 
+ARG LIVY_URL=http://archive.apache.org/dist/incubator/livy/0.4.0-incubating/livy-0.4.0-incubating-bin.zip
+ARG LIVY_VER=livy-0.4.0-incubating-bin
+
 ######################################################################################################
 #
 #   Dependancies
@@ -113,6 +116,17 @@ RUN rm /sparkling_water.zip
 #RUN pip install future
 #RUN export SPARK_HOME=/spark
 #RUN export MASTER="local[*]"
+
+######################################################################################################
+#
+#   Install Livy
+#
+######################################################################################################
+
+RUN wget ${LIVY_URL} -O /livy.zip
+RUN unzip /livy.zip
+RUN mv /${LIVY_VER} /livy
+RUN rm /livy.zip
 
 ######################################################################################################
 #
