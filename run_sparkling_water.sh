@@ -19,6 +19,8 @@ echo "Starting Apache Zeppelin on Port 19090..."
 sleep 5
 docker exec sparkling_water /zeppelin/bin/zeppelin-daemon.sh start &
 
+docker exec sparkling_water /livy/bin/livy-server &
+
 # Copy assets into container
 docker cp containers/spark_sparkling_water/assets sparkling_water:/.
 
