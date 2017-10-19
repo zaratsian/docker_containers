@@ -127,6 +127,7 @@ RUN wget ${LIVY_URL} -O /livy.zip
 RUN unzip /livy.zip
 RUN mv /${LIVY_VER} /livy
 RUN rm /livy.zip
+RUN mkdir /livy/logs
 
 ######################################################################################################
 #
