@@ -31,7 +31,10 @@ docker exec sparkling_water sh -c "/assets/pip_install_packages.sh"
 ################################################################################
 # Start Livy
 ################################################################################
-docker exec sparkling_water /livy/bin/livy-server &
+docker exec sparkling_water /bin/sh -c "echo 'export SPARK_HOME=/spark' >> /start_livy.sh"
+docker exec sparkling_water /bin/sh -c "echo '/livy/bin/livy-server &' >> /start_livy.sh"
+docker exec sparkling_water /bin/sh -c "chmod +x /start_livy.sh"
+docker exec sparkling_water /bin/sh -c "/start_livy.sh"
 
 ################################################################################
 # Copy assets into container
