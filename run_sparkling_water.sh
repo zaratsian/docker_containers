@@ -21,6 +21,14 @@ sleep 5
 docker exec sparkling_water /zeppelin/bin/zeppelin-daemon.sh start &
 
 ################################################################################
+# Setup a few dependancies are setup for H2O Sparkling Water
+################################################################################
+docker exec sparkling_water sh -c "echo '' >> /root/.bashrc"
+docker exec sparkling_water sh -c "echo 'export SPARK_HOME=/spark' >> /root/.bashrc"
+docker exec sparkling_water sh -c "chmod +x /assets/pip_install_packages.sh"
+docker exec sparkling_water sh -c "/assets/pip_install_packages.sh"
+
+################################################################################
 # Start Livy
 ################################################################################
 docker exec sparkling_water /livy/bin/livy-server &
@@ -29,14 +37,6 @@ docker exec sparkling_water /livy/bin/livy-server &
 # Copy assets into container
 ################################################################################
 docker cp containers/spark_sparkling_water/assets sparkling_water:/.
-
-################################################################################
-# Setup a few dependancies are setup for H2O Sparkling Water
-################################################################################
-docker exec sparkling_water sh -c "echo '' >> /root/.bashrc"
-docker exec sparkling_water sh -c "echo 'export SPARK_HOME=/spark' >> /root/.bashrc"
-docker exec sparkling_water sh -c "chmod +x /assets/pip_install_packages.sh"
-docker exec sparkling_water sh -c "/assets/pip_install_packages.sh"
 
 echo ""
 echo ""
