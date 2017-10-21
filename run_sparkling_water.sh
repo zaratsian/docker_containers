@@ -5,12 +5,17 @@ docker rm sparkling_water
 docker run -it -d -p 18088:8088 -p 19090:8080 -p 54321:54321 -p 14444:4444 -p 15555:5555 --hostname sparkling_water --net dev --name sparkling_water sparkling_water
 
 ################################################################################
+# Copy assets into container
+################################################################################
+docker cp containers/spark_sparkling_water/assets sparkling_water:/.
+
+################################################################################
 # Run install.sh script (misc cmds, environment variables, etc.)
 ################################################################################
 echo ""
 echo "[ INFO ] Installing Dependencies..."
 docker exec sparkling_water /bin/sh -c "chmod +x /assets/install.sh"
-docker exec sparkling_water /bin/sh -c "/assets/install.sh"
+docker exec sparkling_water /bin/sh -c "/assets/install.sh" &
 
 ################################################################################
 # Start Superset
@@ -37,11 +42,6 @@ docker exec sparkling_water /zeppelin/bin/zeppelin-daemon.sh start &
 # Start Livy
 ################################################################################
 # Started as part of Dependencies (at the start of this script).
-
-################################################################################
-# Copy assets into container
-################################################################################
-docker cp containers/spark_sparkling_water/assets sparkling_water:/.
 
 echo ""
 echo ""
