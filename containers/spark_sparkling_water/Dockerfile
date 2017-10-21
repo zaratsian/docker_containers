@@ -136,8 +136,6 @@ RUN mkdir /livy/logs
 ######################################################################################################
 
 ADD assets /assets
-ADD assets/start_zeppelin.sh /start_zeppelin.sh
-ADD assets/admin.config /admin.config
 
 
 #CMD source /root/.bashrc; cd /spark; /zeppelin/bin/zeppelin-daemon.sh start; superset runserver
