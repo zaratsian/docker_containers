@@ -10,14 +10,6 @@ docker run -it -d -p 18088:8088 -p 19090:8080 -p 54321:54321 -p 14444:4444 -p 15
 docker cp containers/spark_sparkling_water/assets sparkling_water:/.
 
 ################################################################################
-# Run install.sh script (misc cmds, environment variables, etc.)
-################################################################################
-echo ""
-echo "[ INFO ] Installing Dependencies..."
-docker exec sparkling_water /bin/sh -c "chmod +x /assets/install.sh"
-docker exec sparkling_water /bin/sh -c "/assets/install.sh" &
-
-################################################################################
 # Start Superset
 ################################################################################
 echo ""
@@ -34,12 +26,14 @@ sleep 5
 docker exec sparkling_water /zeppelin/bin/zeppelin-daemon.sh start &
 
 ################################################################################
-# Setup a few dependancies are setup for H2O Sparkling Water
-################################################################################
-# Installed as part of Dependencies (at the start of this script).
-
-################################################################################
+# Run install.sh to setup dependencies for H2O
 # Start Livy
+################################################################################
+echo ""
+echo "[ INFO ] Installing Dependencies..."
+docker exec sparkling_water /bin/sh -c "chmod +x /assets/install.sh"
+docker exec sparkling_water /bin/sh -c "/assets/install.sh" &
+
 ################################################################################
 # Started as part of Dependencies (at the start of this script).
 
