@@ -15,7 +15,7 @@ pip install future
 # Start Livy Server
 echo "[ INFO ] Starting Livy Server"
 export SPARK_HOME=/spark
-nohup /livy/bin/livy-server &
+nohup /livy/bin/livy-server & > /dev/null
 
 
 #ZEND
