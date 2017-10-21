@@ -5,10 +5,18 @@ docker rm sparkling_water
 docker run -it -d -p 18088:8088 -p 19090:8080 -p 54321:54321 -p 14444:4444 -p 15555:5555 --hostname sparkling_water --net dev --name sparkling_water sparkling_water
 
 ################################################################################
+# Run install.sh script (misc cmds, environment variables, etc.)
+################################################################################
+echo ""
+echo "[ INFO ] Installing Dependencies..."
+docker exec sparkling_water /bin/sh -c "chmod +x /assets/install.sh"
+docker exec sparkling_water /bin/sh -c "/assets/install.sh"
+
+################################################################################
 # Start Superset
 ################################################################################
 echo ""
-echo "Starting Apache Superset on Port 18088..."
+echo "[ INFO ] Starting Apache Superset on Port 18088..."
 sleep 5
 docker exec sparkling_water superset runserver &
 
@@ -16,26 +24,19 @@ docker exec sparkling_water superset runserver &
 # Start Zeppelin
 ################################################################################
 echo ""
-echo "Starting Apache Zeppelin on Port 19090..."
+echo "[ INFO ] Starting Apache Zeppelin on Port 19090..."
 sleep 5
 docker exec sparkling_water /zeppelin/bin/zeppelin-daemon.sh start &
 
 ################################################################################
 # Setup a few dependancies are setup for H2O Sparkling Water
 ################################################################################
-docker exec sparkling_water sh -c "echo '' >> /root/.bashrc"
-docker exec sparkling_water sh -c "echo 'export SPARK_HOME=/spark' >> /root/.bashrc"
-docker exec sparkling_water sh -c "chmod +x /assets/pip_install_packages.sh"
-docker exec sparkling_water sh -c "/assets/pip_install_packages.sh"
+# Installed as part of Dependencies (at the start of this script).
 
 ################################################################################
 # Start Livy
 ################################################################################
-docker exec sparkling_water /bin/sh -c "echo 'export SPARK_HOME=/spark' >> /start_livy.sh"
-docker exec sparkling_water /bin/sh -c "echo 'export PYSPARK_PYTHON=/opt/conda/bin/python2.7' >> /start_livy.sh"
-docker exec sparkling_water /bin/sh -c "echo '/livy/bin/livy-server &' >> /start_livy.sh"
-docker exec sparkling_water /bin/sh -c "chmod +x /start_livy.sh"
-docker exec sparkling_water /bin/sh -c "/start_livy.sh"
+# Started as part of Dependencies (at the start of this script).
 
 ################################################################################
 # Copy assets into container
