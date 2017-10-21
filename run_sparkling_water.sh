@@ -31,6 +31,7 @@ docker exec sparkling_water /zeppelin/bin/zeppelin-daemon.sh start &
 ################################################################################
 echo ""
 echo "[ INFO ] Installing Dependencies..."
+sleep 30
 docker exec sparkling_water /bin/sh -c "chmod +x /assets/install.sh"
 docker exec sparkling_water /bin/sh -c "/assets/install.sh" &
 
