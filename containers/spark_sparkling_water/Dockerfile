@@ -10,11 +10,11 @@ ARG JAVA_VER=java-1.8.0-openjdk-devel
 
 ARG ANACONDA_URL=https://repo.continuum.io/archive/Anaconda2-5.0.0.1-Linux-x86_64.sh
 
-ARG SPARK_URL=https://archive.apache.org/dist/spark/spark-2.1.0/spark-2.1.0-bin-hadoop2.7.tgz
-ARG SPARK_VER=spark-2.1.0-bin-hadoop2.7
+ARG SPARK_URL=https://archive.apache.org/dist/spark/spark-2.2.0/spark-2.2.0-bin-hadoop2.7.tgz
+ARG SPARK_VER=spark-2.2.0-bin-hadoop2.7
 
-ARG ZEPPELIN_URL=https://archive.apache.org/dist/zeppelin/zeppelin-0.7.0/zeppelin-0.7.0-bin-all.tgz
-ARG ZEPPELIN_VER=zeppelin-0.7.0-bin-all
+ARG ZEPPELIN_URL=https://archive.apache.org/dist/zeppelin/zeppelin-0.7.3/zeppelin-0.7.3-bin-all.tgz
+ARG ZEPPELIN_VER=zeppelin-0.7.3-bin-all
 
 ARG H2O_SPARKLING_WATER_URL=http://h2o-release.s3.amazonaws.com/sparkling-water/rel-2.1/14/sparkling-water-2.1.14.zip
 
