@@ -24,8 +24,8 @@ docker exec spark_220 mv kafka_2.10-0.10.1.1 /kafka
 #docker exec spark_220 pip install requests
 
 # Install R (then, manually install knitr)
-docker exec spark_220 yum install -y epel-release
-docker exec spark_220 yum install -y R R-devel libcurl-devel openssl-devel
+#docker exec spark_220 yum install -y epel-release
+#docker exec spark_220 yum install -y R R-devel libcurl-devel openssl-devel
 
 # Copy Assets
 docker cp ~/Dropbox/data/airlines.csv spark_220:/.
