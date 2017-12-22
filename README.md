@@ -1,6 +1,5 @@
 <h3>Docker Containers - Rapid Prototyping Env</h3>
 Contains the following Hortonworks tech stack (within Docker containers):
-<br>
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&bull; Apache Spark & Apache Zeppelin (multiple versions - 1.6.2, 2.0.0, 2.1.0)
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&bull; Apache NiFi
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&bull; Apache Kafka
@@ -14,7 +13,7 @@ Other containers / services incorporate:
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&bull; Apache Airflow
 <br>
 <br>
-<br>Docker cleanup:
+<br><b>Docker cleanup:</b>
 <br>docker system prune
 <br>docker volume prune
 <br>docker volume rm $(docker volume ls -qf dangling=true)
