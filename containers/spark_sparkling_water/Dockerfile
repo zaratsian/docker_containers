@@ -16,7 +16,7 @@ ARG SPARK_VER=spark-2.2.0-bin-hadoop2.7
 ARG ZEPPELIN_URL=https://archive.apache.org/dist/zeppelin/zeppelin-0.7.3/zeppelin-0.7.3-bin-all.tgz
 ARG ZEPPELIN_VER=zeppelin-0.7.3-bin-all
 
-ARG H2O_SPARKLING_WATER_URL=http://h2o-release.s3.amazonaws.com/sparkling-water/rel-2.1/14/sparkling-water-2.1.14.zip
+ARG H2O_SPARKLING_WATER_URL=http://h2o-release.s3.amazonaws.com/sparkling-water/rel-2.2/6/sparkling-water-2.2.6.zip
 
 ARG LIVY_URL=http://archive.apache.org/dist/incubator/livy/0.4.0-incubating/livy-0.4.0-incubating-bin.zip
 ARG LIVY_VER=livy-0.4.0-incubating-bin
@@ -59,6 +59,8 @@ RUN wget ${ZEPPELIN_URL} -O /zeppelin.tgz
 RUN tar -xzvf zeppelin.tgz
 RUN mv ${ZEPPELIN_VER} /zeppelin
 RUN echo "export SPARK_HOME=/spark" >> /zeppelin/conf/zeppelin-env.sh
+RUN echo 'export SPARK_SUBMIT_OPTIONS="--files /tmp/sparkling-water-2.2.6/py/build/dist/h2o_pysparkling_2.2-2.2.6.zip"' >> /zeppelin/conf/zeppelin-env.sh
+RUN echo 'export PYTHONPATH="/tmp/sparkling-water-2.2.6/py/build/dist/h2o_pysparkling_2.2-2.2.6.zip:${SPARK_HOME}/python:${SPARK_HOME}/python/lib/py4j-0.8.2.1-src.zip"' >> /zeppelin/conf/zeppelin-env.sh
 RUN rm /zeppelin.tgz
 
 ######################################################################################################
@@ -71,10 +73,11 @@ RUN curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
 RUN python get-pip.py
 RUN rm get-pip.py
 RUN yum -y install bzip2
-RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
-    wget --quiet ${ANACONDA_URL} -O ~/anaconda.sh && \
-    /bin/bash ~/anaconda.sh -b -p /opt/conda && \
-    rm ~/anaconda.sh
+RUN wget https://repo.continuum.io/archive/Anaconda2-5.0.1-Linux-x86_64.sh -O /tmp/Anaconda2-5.0.1-Linux-x86_64.sh
+RUN chmod +x /tmp/Anaconda2-5.0.1-Linux-x86_64.sh
+RUN ./Anaconda2-5.0.1-Linux-x86_64.sh -b -p /opt/anaconda2
+RUN echo 'export PATH="/opt/anaconda2/bin:$PATH"' >> ~/.bashrc
+RUN rm /tmp/Anaconda2-5.0.1-Linux-x86_64.sh
 
 ######################################################################################################
 #
