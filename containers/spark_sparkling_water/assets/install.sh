@@ -21,4 +21,8 @@ export PYSPARK_PYTHON=/opt/conda/bin/python2.7
 nohup /livy/bin/livy-server & > /dev/null
 
 
+# Initialize Superset 
+fabmanager create-admin --app superset
+
+
 #ZEND
