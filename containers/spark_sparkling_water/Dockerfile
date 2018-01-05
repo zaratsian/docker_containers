@@ -59,8 +59,8 @@ RUN wget ${ZEPPELIN_URL} -O /zeppelin.tgz
 RUN tar -xzvf zeppelin.tgz
 RUN mv ${ZEPPELIN_VER} /zeppelin
 RUN echo "export SPARK_HOME=/spark" >> /zeppelin/conf/zeppelin-env.sh
-RUN echo 'export SPARK_SUBMIT_OPTIONS="--files /tmp/sparkling-water-2.2.6/py/build/dist/h2o_pysparkling_2.2-2.2.6.zip"' >> /zeppelin/conf/zeppelin-env.sh
-RUN echo 'export PYTHONPATH="/tmp/sparkling-water-2.2.6/py/build/dist/h2o_pysparkling_2.2-2.2.6.zip:${SPARK_HOME}/python:${SPARK_HOME}/python/lib/py4j-0.8.2.1-src.zip"' >> /zeppelin/conf/zeppelin-env.sh
+RUN echo 'export SPARK_SUBMIT_OPTIONS="--files /sparkling-water-2.2.6/py/build/dist/h2o_pysparkling_2.2-2.2.6.zip"' >> /zeppelin/conf/zeppelin-env.sh
+RUN echo 'export PYTHONPATH="/sparkling-water-2.2.6/py/build/dist/h2o_pysparkling_2.2-2.2.6.zip:${SPARK_HOME}/python:${SPARK_HOME}/python/lib/py4j-0.8.2.1-src.zip"' >> /zeppelin/conf/zeppelin-env.sh
 RUN rm /zeppelin.tgz
 
 ######################################################################################################
