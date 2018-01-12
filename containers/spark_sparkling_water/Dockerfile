@@ -79,6 +79,9 @@ RUN ./Anaconda2-5.0.1-Linux-x86_64.sh -b -p /opt/anaconda2
 RUN echo 'export PATH="/opt/anaconda2/bin:$PATH"' >> ~/.bashrc
 RUN rm /tmp/Anaconda2-5.0.1-Linux-x86_64.sh
 
+RUN /opt/anaconda2/bin/pip install tabulate 
+RUN /opt/anaconda2/bin/pip install future 
+
 ######################################################################################################
 #
 #   Install Superset
@@ -90,10 +93,12 @@ RUN yum -y install python-setuptools
 RUN yum -y install gcc gcc-c++ libffi-devel python-devel python-pip python-wheel openssl-devel libsasl2-devel openldap-devel
 
 RUN pip install --upgrade setuptools pip
-RUN pip install superset
+RUN pip install superset==0.22.1
+RUN fabmanager create-admin --app superset --username admin --firstname admin --lastname user --email admin@fab.org --password admin
 RUN superset db upgrade
 RUN superset load_examples
 RUN superset init
+
 
 #RUN echo "admin" > /admin.config
 #RUN echo "first" >> /admin.config
