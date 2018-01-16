@@ -75,7 +75,7 @@ RUN rm get-pip.py
 RUN yum -y install bzip2
 RUN wget https://repo.continuum.io/archive/Anaconda2-5.0.1-Linux-x86_64.sh -O /tmp/Anaconda2-5.0.1-Linux-x86_64.sh
 RUN chmod +x /tmp/Anaconda2-5.0.1-Linux-x86_64.sh
-RUN ./Anaconda2-5.0.1-Linux-x86_64.sh -b -p /opt/anaconda2
+RUN /tmp/Anaconda2-5.0.1-Linux-x86_64.sh -b -p /opt/anaconda2
 RUN echo 'export PATH="/opt/anaconda2/bin:$PATH"' >> ~/.bashrc
 RUN rm /tmp/Anaconda2-5.0.1-Linux-x86_64.sh
 
