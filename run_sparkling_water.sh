@@ -26,14 +26,14 @@ sleep 5
 docker exec sparkling_water /zeppelin/bin/zeppelin-daemon.sh start &
 
 ################################################################################
-# Run install.sh to setup dependencies for H2O
-# Start Livy
+# Run install.sh to setup additional setup dependencies
 ################################################################################
-echo ""
-echo "[ INFO ] Installing Dependencies..."
-sleep 30
-docker exec sparkling_water /bin/sh -c "chmod +x /assets/install.sh"
-docker exec sparkling_water /bin/sh -c "/assets/install.sh" &
+#echo ""
+#echo "[ INFO ] Installing Dependencies..."
+#echo ""
+#sleep 3
+#docker exec sparkling_water /bin/sh -c "chmod +x /assets/install.sh"
+#docker exec sparkling_water /bin/sh -c "/assets/install.sh" &
 
 ################################################################################
 # Started as part of Dependencies (at the start of this script).
@@ -50,14 +50,6 @@ echo "*  Port (H2O):       54321"
 echo "*  Port (Livy):      8998"
 echo "*"
 echo "*  Usage: docker exec -it sparkling_water bash"
-echo "*"
-echo "*  IMPORTANT: Run /assets/install.sh within bash"
-echo "*  IMPORTANT: Run these Superset commands in bash:"
-echo "*             fabmanager create-admin --app superset"
-echo "*             superset db upgrade"
-echo "*             superset load_examples"
-echo "*             superset init"
-echo "*             superset runserver"
 echo "*"
 echo "*****************************************************"
 echo ""
