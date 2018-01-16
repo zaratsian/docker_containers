@@ -79,9 +79,6 @@ RUN ./Anaconda2-5.0.1-Linux-x86_64.sh -b -p /opt/anaconda2
 RUN echo 'export PATH="/opt/anaconda2/bin:$PATH"' >> ~/.bashrc
 RUN rm /tmp/Anaconda2-5.0.1-Linux-x86_64.sh
 
-RUN /opt/anaconda2/bin/pip install tabulate 
-RUN /opt/anaconda2/bin/pip install future 
-
 ######################################################################################################
 #
 #   Install Superset
@@ -99,17 +96,6 @@ RUN superset db upgrade
 RUN superset load_examples
 RUN superset init
 
-
-#RUN echo "admin" > /admin.config
-#RUN echo "first" >> /admin.config
-#RUN echo "last"  >> /admin.config
-#RUN echo "admin@email.com" >> /admin.config
-#RUN echo "admin" >> /admin.config
-#RUN echo "admin" >> /admin.config
-#RUN /bin/sh -c 'fabmanager create-admin --app superset < /admin.config'
-
-#RUN superset runserver
-
 ######################################################################################################
 #
 #   Install H2O Sparkling Water
@@ -120,10 +106,9 @@ RUN superset init
 RUN wget ${H2O_SPARKLING_WATER_URL} -O /sparkling_water.zip
 RUN unzip /sparkling_water.zip
 RUN rm /sparkling_water.zip
-#RUN pip install tabulate
-#RUN pip install future
-#RUN export SPARK_HOME=/spark
-#RUN export MASTER="local[*]"
+
+RUN /opt/anaconda2/bin/pip install tabulate 
+RUN /opt/anaconda2/bin/pip install future 
 
 ######################################################################################################
 #
