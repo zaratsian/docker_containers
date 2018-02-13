@@ -1,6 +1,10 @@
 
 #######################################################################################################################
 #
+#   HDP Search (Apache Solr 5.5.2)
+#   https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.4/bk_solr-search-installation/content/ch_hdp-search.html
+#   https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.4/bk_solr-search-installation/content/ch_hdp-search-install-nonambari.html
+#
 #   Build:      docker build -t hdp_search containers/hdp_search
 #
 #   Run:        docker run -it -d -p 8983:8983 -p 2181:2181 -p 18080:8080 -p 19999:9999 --hostname hdp_search --net dev --name hdp_search hdp_search
