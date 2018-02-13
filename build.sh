@@ -8,6 +8,7 @@ docker build -t kafka containers/kafka
 docker build -t nifi containers/nifi
 docker build -t phoenix containers/phoenix
 docker build -t solr containers/solr
+docker build -t hdp_search containers/hdp_search
 docker build -t storm containers/storm
 docker build -t superset containers/superset
 docker build -t airflow containers/airflow
