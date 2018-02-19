@@ -12,6 +12,20 @@ docker exec hdp_search /opt/lucidworks-hdpsearch/solr/bin/solr start -c -z local
 # Create Solr Collection
 docker exec hdp_search /opt/lucidworks-hdpsearch/solr/bin/solr create -c hwx_search -d data_driven_schema_configs -s 1 -rf 1 -p 8983
 
+# Backup Solr Collection
+#curl "http://localhost:8983/solr/hwx_search/replication?command=backup&location=/tmp&name=hwx_search_backup&wt=json"
+#echo ""
+#echo "Solr Backup Status:"
+#echo ""
+#curl "http://localhost:8983/solr/hwx_search/replication?command=details&wt=json"
+#docker exec hdp_search tar -zcvf /tmp/snapshot_hwx_search_backup.tar.gz /tmp/snapshot.hwx_search_backup
+#docker cp hdp_search:/tmp/snapshot_hwx_search_backup.tar.gz containers/hdp_search/assets/. 
+
+# Restore Solr Collection
+docker cp containers/hdp_search/assets/snapshot_hwx_search_backup.tar.gz hdp_search:/tmp/snapshot_hwx_search_backup.tar.gz
+docker exec hdp_search tar -zxvf /tmp/snapshot_hwx_search_backup.tar.gz
+docker exec hdp_search curl "http://localhost:8983/solr/hwx_search/replication?command=restore&location=/tmp&name=snapshot.hwx_search_backup&wt=json"
+
 
 echo ""
 echo ""
@@ -27,11 +41,5 @@ echo "*"
 echo "*****************************************************"
 echo ""
 echo ""
-
-
-
-
-
-
 
 
