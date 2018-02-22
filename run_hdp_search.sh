@@ -12,7 +12,7 @@ docker exec hdp_search /opt/lucidworks-hdpsearch/solr/bin/solr start -c -z local
 # Create Solr Collection
 docker exec hdp_search /opt/lucidworks-hdpsearch/solr/bin/solr create -c hwx_search -d data_driven_schema_configs -s 1 -rf 1 -p 8983
 
-# Backup Solr Collection (working)
+# Backup Solr Collection (working - commented out because backup has been created)
 #curl "http://localhost:8983/solr/hwx_search/replication?command=backup&location=/tmp&name=hwx_search_backup&wt=json"
 #echo ""
 #echo "Solr Backup Status:"
@@ -21,10 +21,11 @@ docker exec hdp_search /opt/lucidworks-hdpsearch/solr/bin/solr create -c hwx_sea
 #docker exec hdp_search tar -zcvf /tmp/snapshot_hwx_search_backup.tar.gz /tmp/snapshot.hwx_search_backup
 #docker cp hdp_search:/tmp/snapshot_hwx_search_backup.tar.gz containers/hdp_search/assets/. 
 
-# Restore Solr Collection (working)
-#docker cp containers/hdp_search/assets/snapshot_hwx_search_backup.tar.gz hdp_search:/tmp/snapshot_hwx_search_backup.tar.gz
-#docker exec hdp_search tar -zxvf /tmp/snapshot_hwx_search_backup.tar.gz
-#docker exec hdp_search curl "http://localhost:8983/solr/hwx_search/replication?command=restore&location=/tmp&name=snapshot.hwx_search_backup&wt=json"
+# Restore Solr Collection
+docker cp ~/hortonworks/snapshot_hwx_search_backup.tar.gz hdp_search:/tmp/snapshot_hwx_search_backup.tar.gz
+docker exec hdp_search tar -zxvf /tmp/snapshot_hwx_search_backup.tar.gz
+docker exec hdp_search mv /tmp/snapshot.hwx_search_backup/ /opt/lucidworks-hdpsearch/solr/server/solr/hwx_search_shard1_replica1/data/snapshot.20180222000332276
+docker exec hdp_search curl http://localhost:8983/solr/hwx_search/replication?command=restore&name=hwx_search_backup
 
 
 echo ""
