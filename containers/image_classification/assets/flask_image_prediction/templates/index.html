@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+
+    <title>Image Classification</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="">
+	<meta name="author" content="" />
+
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,800italic,400,600,800" type="text/css">
+	<link rel="stylesheet" href="../static/css/font-awesome.min.css" type="text/css" />		
+	<link rel="stylesheet" href="../static/css/bootstrap.min.css" type="text/css" />	
+	<link rel="stylesheet" href="../static/js/libs/css/ui-lightness/jquery-ui-1.9.2.custom.css" type="text/css" />		
+	<link rel="stylesheet" href="../static/js/plugins/select2/select2.css" type="text/css" />
+	<link rel="stylesheet" href="../static/js/plugins/magnific/magnific-popup.css" type="text/css" />
+	<link rel="stylesheet" href="../static/js/plugins/icheck/skins/minimal/blue.css" type="text/css" />
+	<link rel="stylesheet" href="../static/css/App.css" type="text/css" />
+	<link rel="stylesheet" href="../static/css/custom.css" type="text/css" />
+	
+	<link rel="stylesheet" href="../static/js/plugins/datepicker/datepicker.css" type="text/css" />
+	<link rel="stylesheet" href="../static/js/plugins/simplecolorpicker/jquery.simplecolorpicker.css" type="text/css" />
+	<link rel="stylesheet" href="../static/js/plugins/timepicker/bootstrap-timepicker.css" type="text/css" />
+	<link rel="stylesheet" href="../static/js/plugins/fileupload/bootstrap-fileupload.css" type="text/css" />
+
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+	<header id="header">
+		<!--
+		<h1 id="site-logo">
+			<a href="./index.html">
+				<img src="./img/logos/logo.png" alt="Site Logo" />
+			</a>
+		</h1>	
+		-->
+
+		<a href="javascript:;" data-toggle="collapse" data-target=".top-bar-collapse" id="top-bar-toggle" class="navbar-toggle collapsed">
+			<i class="fa fa-cog"></i>
+		</a>
+
+
+	</header> <!-- header -->
+
+	<div id="sidebar-wrapper" class="collapse sidebar-collapse">
+	
+		<div id="search">
+			<!--
+			<form>
+				<input class="form-control input-sm" type="text" name="search" placeholder="Search..." />
+				<button type="submit" id="search-btn" class="btn"><i class="fa fa-search"></i></button>
+			</form>		
+			-->
+		</div> <!-- #search -->
+		
+		<!--
+		<nav id="sidebar">		
+			
+			<ul id="main-nav" class="open-active">			
+
+				<li class="">				
+					<a href="#">
+						<i class="fa fa-dashboard"></i>
+						Dashboard
+					</a>				
+				</li>
+
+			</ul>
+					
+		</nav>
+		-->
+
+	</div> <!-- /#sidebar-wrapper -->
+
+	
+	<div id="content_full">		
+		
+		<div id="content-header">
+			
+			<br>
+			<br>
+			<center><b><font size="4">Image Classification</font></b></center> 
+
+		</div> <!-- #content-header -->	
+
+
+
+
+		<div id="content-container">			
+
+			<!--
+			<center><img src="./static/img/nfl_banner2.png" style="width: 100%"></center>
+
+			<br><br>
+			-->	
+
+
+            <center>	
+                <font size=3><b>{{ prediction }}</b><br>(Probability: {{ prediction_prob }} %)</font>
+            </center>
+
+
+
+
+			<div class="tab-content stacked-content">
+
+
+				<div class="row">
+
+					<div class="col-md-4"></div>
+					<div class="col-md-4">
+
+						<div class="thumbnail">
+							<center>
+							<div class="thumbnail-view">
+								<a href="{{ image_path_html }}" class="thumbnail-view-hover ui-lightbox"></a>
+					            <img src="{{ image_path_html }}" style="height: 200px" alt="Gallery Image" />
+					        </div>
+					        </center>
+				        </div>
+
+				        <!--
+                        <center>	
+                            <font size=3><b>{{ prediction }}</b><br>(Probability: {{ prediction_prob }} %)</font>
+                        </center>
+						-->
+
+					</div>
+					<div class="col-md-4"></div>                 
+
+				</div>
+
+				<div class="row">
+
+					<div class="col-md-4"></div>
+					<div class="col-md-4">
+
+                        <form id="login-form" action="/" method="POST" enctype="multipart/form-data" class="box tile animated active">
+ 
+                            <center>
+                            	<input type=file name=file>
+                            </center>
+
+                            <!--
+		                    <div class="form-group">
+                                <input type="hidden" id="img_filepath" name="img_filepath" value="{{ image_path_html }}">
+                            </div>	
+                            -->
+
+							<br>
+
+							<center>
+								<button type="submit" class="btn btn-info"><font size="3">Score Image</font></button>
+							</center>
+
+                        </form>
+
+
+
+
+					</div>
+					<div class="col-md-4"></div>                 
+
+				</div>
+
+
+
+				</div>
+
+
+		    </div>
+
+
+
+
+
+
+
+
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</div> <!-- /#content-container -->
+		
+	</div> <!-- #content -->
+	
+	
+</div> <!-- #wrapper -->
+
+<footer id="footer">
+	<ul class="nav pull-right">
+		<li>
+			Copyright &copy; 2017
+		</li>
+	</ul>
+</footer>
+
+<!--
+##################################
+Function to delete row in table
+##################################
+-->
+<script>
+	function deleteRow(btn){
+		var row = btn.parentNode.parentNode;
+		row.parentNode.removeChild(row)
+	}
+</script>
+
+
+
+
+
+<script>
+function update_values() {
+            $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+            $.getJSON($SCRIPT_ROOT+"/mytest",
+                function(data) {
+                    $("#zout").text(data.zout+" %")
+                });
+        }
+</script>
+
+
+<script src="../static/js/libs/jquery-1.9.1.min.js"></script>
+<script src="../static/js/libs/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="../static/js/libs/bootstrap.min.js"></script>
+<script src="../static/js/App.js"></script>
+<script src="../static/js/popups.js"></script>
+<script src="../static/js/plugins/howl/howl.js"></script>
+<script src="../static/js/plugins/select2/select2.js"></script>
+<script src="../static/js/plugins/icheck/jquery.icheck.js"></script>
+<script src="../static/js/plugins/magnific/jquery.magnific-popup.min.js"></script>
+<script src="../static/js/plugins/magnific/jquery.magnific-popup.min.js"></script>
+<script src="../static/js/plugins/datepicker/bootstrap-datepicker.js"></script>
+<script src="../static/js/plugins/timepicker/bootstrap-timepicker.js"></script>
+<script src="../static/js/plugins/simplecolorpicker/jquery.simplecolorpicker.js"></script>
+<script src="../static/js/plugins/autosize/jquery.autosize.min.js"></script>
+<script src="../static/js/plugins/textarea-counter/jquery.textarea-counter.js"></script>
+<script src="../static/js/plugins/fileupload/bootstrap-fileupload.js"></script>
+<script src="../static/js/demos/form-extended.js"></script>
+
+</body>
+</html>
