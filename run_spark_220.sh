@@ -9,9 +9,9 @@ docker exec spark_220 curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py
 docker exec spark_220 python get-pip.py
 
 # Install Kafka (for structured streaming and other use cases)
-#docker exec spark_220 wget https://archive.apache.org/dist/kafka/0.10.1.1/kafka_2.10-0.10.1.1.tgz -O /kafka.tgz
+#docker exec spark_220 wget https://archive.apache.org/dist/kafka/0.11.0.2/kafka_2.11-0.11.0.2.tgz -O /kafka.tgz
 #docker exec spark_220 tar -xzvf /kafka.tgz
-#docker exec spark_220 mv kafka_2.10-0.10.1.1 /kafka
+#docker exec spark_220 mv kafka_2.11-0.11.0.2 /kafka
 
 # Install Tensorflow
 #docker exec spark_220 pip install --upgrade tensorflow
