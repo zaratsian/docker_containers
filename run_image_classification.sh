@@ -11,7 +11,7 @@ docker cp containers/image_classification/assets image_classification:/.
 echo ""
 echo "Startin App on port 4444 (external port 14444)..."
 sleep 2
-docker exec image_classification /assets/start_app.sh
+docker exec image_classification /bin/sh -c "/assets/start_app.sh" &
 sleep 5
 
 echo ""
