@@ -12,6 +12,7 @@ echo ""
 echo "Startin App on port 4444 (external port 14444)..."
 sleep 2
 docker exec image_classification /assets/start_app.sh
+sleep 5
 
 echo ""
 echo ""
