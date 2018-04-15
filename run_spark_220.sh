@@ -5,8 +5,8 @@ docker run -it -d -p 18080:8080 -p 14040:4040 -p 14444:4444 -p 12181:2181 --host
 
 
 # Install pip
-docker exec spark_220 curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
-docker exec spark_220 python get-pip.py
+#docker exec spark_220 curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+#docker exec spark_220 python get-pip.py
 
 # Install Kafka (for structured streaming and other use cases)
 #docker exec spark_220 wget https://archive.apache.org/dist/kafka/0.11.0.2/kafka_2.11-0.11.0.2.tgz -O /kafka.tgz
@@ -26,6 +26,9 @@ docker exec spark_220 python get-pip.py
 # Install R (then, manually install knitr)
 #docker exec spark_220 yum install -y epel-release
 #docker exec spark_220 yum install -y R R-devel libcurl-devel openssl-devel
+
+# Start Zeppelin (running on localhost port 18080)
+docker exec spark_220 /zeppelin/bin/zeppelin-daemon.sh start 
 
 # Copy Assets
 docker cp ~/Dropbox/data/airlines.csv spark_220:/.
