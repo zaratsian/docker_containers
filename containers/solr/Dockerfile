@@ -96,8 +96,8 @@ ADD assets/start_zk.sh /start_zk.sh
 #
 ##########################################################################################
 
-CMD /start_zk.sh
-CMD /start_solr.sh
-CMD /zeppelin/bin/zeppelin-daemon.sh start
+#CMD /start_zk.sh
+#CMD /start_solr.sh
+#CMD /zeppelin/bin/zeppelin-daemon.sh start
 
 #ZEND
