@@ -19,6 +19,7 @@ ARG ZOOKEEPER_VER=3.4.12
 RUN yum install -y ${JAVA_VERSION}
 RUN echo "export JAVA_HOME=/usr/lib/jvm/java" >> /root/.bashrc
 
+RUN yum install -y net-tools
 RUN yum install -y wget
 RUN yum install -y unzip
 RUN yum install -y git
