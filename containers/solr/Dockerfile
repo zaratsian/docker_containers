@@ -54,7 +54,7 @@ RUN echo "syncLimit = 2" >> /zookeeper/conf/zoo.cfg
 #
 ##########################################################################################
 
-RUN wget https://archive.apache.org/dist/zeppelin/zeppelin-${ZEPPELIN_VERSION}/zeppelin-0.7.3-bin-all.tgz -O /zeppelin.tgz
+RUN wget https://archive.apache.org/dist/zeppelin/zeppelin-${ZEPPELIN_VER}/zeppelin-${ZEPPELIN_VER}-bin-all.tgz -O /zeppelin.tgz
 RUN tar -xzvf zeppelin.tgz
 RUN mv ${ZEPPELIN_VER}-bin-all /zeppelin
 RUN echo "export SPARK_HOME=/spark" >> /zeppelin/conf/zeppelin-env.sh
