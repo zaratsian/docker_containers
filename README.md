@@ -20,4 +20,5 @@ Other containers / services incorporate:
 <br>docker system prune
 <br>docker volume prune
 <br>docker volume rm $(docker volume ls -qf dangling=true)
+<br>docker system prune -a -f
 <br>
