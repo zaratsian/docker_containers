@@ -1,9 +1,11 @@
+# docker build -t solr containers/solr
+# docker run -it -d -p 8983:8983 -p 12181:2181 -p 18080:8080 -p 19999:9999 --hostname solr --net dev --name solr solr
 FROM centos:7.4.1708
 
 
 ARG JAVA_VERSION=java-1.8.0-openjdk-devel
 ARG SOLR_VERSION=6.6.4
-ARG ANACONDA_URL=https://repo.continuum.io/archive/Anaconda2-5.0.0.1-Linux-x86_64.sh
+ARG MINICONDA_URL=https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 ARG ZEPPELIN_VER=0.7.3
 ARG ZOOKEEPER_VER=3.4.12
 
@@ -47,6 +49,23 @@ RUN echo "dataDir = /zookeeper/data" >> /zookeeper/conf/zoo.cfg
 RUN echo "clientPort = 2181" >> /zookeeper/conf/zoo.cfg
 RUN echo "initLimit = 5" >> /zookeeper/conf/zoo.cfg
 RUN echo "syncLimit = 2" >> /zookeeper/conf/zoo.cfg
+
+##########################################################################################
+#
+# Install MiniConda
+#
+##########################################################################################
+
+RUN yum install -y bzip2
+RUN wget ${MINICONDA_URL} -O miniconda.sh -O /tmp/miniconda.sh
+RUN chmod +x /tmp/miniconda.sh
+RUN /tmp/miniconda.sh -b -p /opt/miniconda
+ENV PATH="/opt/miniconda/bin:$PATH"
+
+RUN /opt/miniconda/bin/conda install -c anaconda requests
+RUN /opt/miniconda/bin/conda install -c conda-forge pysolr
+RUN /opt/miniconda/bin/conda install -c conda-forge textblob
+RUN /opt/miniconda/bin/conda install -c conda-forge spacy
 
 ##########################################################################################
 #
