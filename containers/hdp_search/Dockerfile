@@ -49,9 +49,9 @@ RUN yum install -y lucidworks-hdpsearch
 #
 #######################################################################################################################
 
-RUN wget http://www-eu.apache.org/dist/zookeeper/stable/zookeeper-3.4.10.tar.gz -O /zookeeper.tgz
+RUN wget https://archive.apache.org/dist/zookeeper/zookeeper-3.4.6/zookeeper-3.4.6.tar.gz -O /zookeeper.tgz
 RUN tar -xzvf /zookeeper.tgz
-RUN mv /zookeeper-3.4.10 /zookeeper
+RUN mv /zookeeper-3.4.6 /zookeeper
 RUN mkdir /zookeeper/data
 
 RUN echo "tickTime = 2000" >> /zookeeper/conf/zoo.cfg
