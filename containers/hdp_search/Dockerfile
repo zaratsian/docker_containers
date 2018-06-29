@@ -85,7 +85,8 @@ RUN echo "syncLimit = 2" >> /zookeeper/conf/zoo.cfg
 #
 #######################################################################################################################
 
-ADD assets /assets
+RUN wget https://raw.githubusercontent.com/elastic/examples/master/Common%20Data%20Formats/apache_logs/apache_logs -O /tmp/apache.log
+#ADD assets /assets
 
 
 
