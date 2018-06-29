@@ -68,16 +68,17 @@ RUN echo "syncLimit = 2" >> /zookeeper/conf/zoo.cfg
 #
 ######################################################################################################
 
-#RUN curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
-#RUN python get-pip.py
-#RUN rm get-pip.py
-#RUN yum -y install bzip2
-#RUN wget https://repo.continuum.io/archive/Anaconda2-5.0.1-Linux-x86_64.sh -O /tmp/Anaconda2-5.0.1-Linux-x86_64.sh
-#RUN chmod +x /tmp/Anaconda2-5.0.1-Linux-x86_64.sh
-#RUN /tmp/Anaconda2-5.0.1-Linux-x86_64.sh -b -p /opt/anaconda2
-#RUN echo 'export PATH="/opt/anaconda2/bin:$PATH"' >> ~/.bashrc
-#RUN rm /tmp/Anaconda2-5.0.1-Linux-x86_64.sh
-#RUN /opt/anaconda2/bin/pip install pysolr
+# Install MiniConda and Python Packages
+RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /opt/miniconda3.sh \
+&& chmod +x /opt/miniconda3.sh          \
+&& /opt/miniconda3.sh -b -p /miniconda3 \
+&& rm /opt/miniconda3.sh                \
+&& /miniconda3/bin/pip install          \
+    pysolr                              \
+    kazoo                               \
+    requests
+
+ENV PATH="/miniconda3/bin:$PATH" 
 
 #######################################################################################################################
 #
