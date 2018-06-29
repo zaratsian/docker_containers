@@ -1,9 +1,8 @@
 
 #######################################################################################################################
 #
-#   HDP Search (Apache Solr 5.5.2)
-#   https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.4/bk_solr-search-installation/content/ch_hdp-search.html
-#   https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.4/bk_solr-search-installation/content/ch_hdp-search-install-nonambari.html
+#   HDP Search (Apache Solr 6.6.2)
+#   https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.5/bk_solr-search-installation/content/ch_hdp-search.html
 #
 #   Build:      docker build -t hdp_search containers/hdp_search
 #
@@ -11,7 +10,7 @@
 #
 #######################################################################################################################
 
-FROM centos
+FROM centos:7.4.1708
 
 ######################################################################################################
 #
@@ -32,22 +31,13 @@ RUN yum install -y git
 
 #######################################################################################################################
 #
-#   Install HDP Search (Solr 5.5)
-#
-#   Documentation:
-#   https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.4/bk_solr-search-installation/content/ch_hdp-search-install-nonambari.html
-#   https://doc.lucidworks.com/lucidworks-hdpsearch/2.5/index.html
+#   Install HDP Search (Solr 6.6.2)
 #
 #######################################################################################################################
 
-#######################################################################################################################
-#
-#   Solr (HDP Search)
-#
-#######################################################################################################################
-
-RUN rpm --import http://public-repo-1.hortonworks.com/HDP-SOLR-2.6-100/repos/centos7/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins
-RUN wget http://public-repo-1.hortonworks.com/HDP-SOLR-2.6-100/repos/centos7/hdp-solr.repo -O /etc/yum.repos.d/hdp-solr.repo
+# Tarball: http://public-repo-1.hortonworks.com/HDP-SOLR-3.0.0-100/repos/centos7/HDP-SOLR-3.0.0-100-centos7.tar.gz
+RUN rpm --import http://public-repo-1.hortonworks.com/HDP-SOLR-3.0.0-100/repos/centos7/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins
+RUN wget http://public-repo-1.hortonworks.com/HDP-SOLR-3.0.0-100/repos/centos7/hdp-solr.repo -O /etc/yum.repos.d/hdp-solr.repo
 RUN yum install -y lucidworks-hdpsearch
 
 #RUN /opt/lucidworks-hdpsearch/solr/bin/solr start -c -z localhost:2181
@@ -59,9 +49,10 @@ RUN yum install -y lucidworks-hdpsearch
 #
 #######################################################################################################################
 
-RUN wget http://www-eu.apache.org/dist/zookeeper/stable/zookeeper-3.4.10.tar.gz -O /zookeeper.tgz
+# RUN wget http://www-eu.apache.org/dist/zookeeper/stable/zookeeper-3.4.10.tar.gz -O /zookeeper.tgz
+RUN wget http://www-eu.apache.org/dist/zookeeper/stable/zookeeper-3.4.6.tar.gz -O /zookeeper.tgz
 RUN tar -xzvf /zookeeper.tgz
-RUN mv /zookeeper-3.4.10 /zookeeper
+RUN mv /zookeeper-3.4.6 /zookeeper
 RUN mkdir /zookeeper/data
 
 RUN echo "tickTime = 2000" >> /zookeeper/conf/zoo.cfg
@@ -69,26 +60,7 @@ RUN echo "dataDir = /zookeeper/data" >> /zookeeper/conf/zoo.cfg
 RUN echo "clientPort = 2181" >> /zookeeper/conf/zoo.cfg
 RUN echo "initLimit = 5" >> /zookeeper/conf/zoo.cfg
 RUN echo "syncLimit = 2" >> /zookeeper/conf/zoo.cfg
-
 #RUN /zookeeper/bin/zkServer.sh start
-
-######################################################################################################
-#
-#   Install Anaconda (and any required packages)
-#
-######################################################################################################
-
-RUN curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
-RUN python get-pip.py
-RUN rm get-pip.py
-RUN yum -y install bzip2
-RUN wget https://repo.continuum.io/archive/Anaconda2-5.0.1-Linux-x86_64.sh -O /tmp/Anaconda2-5.0.1-Linux-x86_64.sh
-RUN chmod +x /tmp/Anaconda2-5.0.1-Linux-x86_64.sh
-RUN /tmp/Anaconda2-5.0.1-Linux-x86_64.sh -b -p /opt/anaconda2
-RUN echo 'export PATH="/opt/anaconda2/bin:$PATH"' >> ~/.bashrc
-RUN rm /tmp/Anaconda2-5.0.1-Linux-x86_64.sh
-
-RUN pip install pysolr
 
 #######################################################################################################################
 #
