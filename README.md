@@ -17,6 +17,7 @@ Other containers / services incorporate:
 <br>
 <br>
 <br><b>Docker cleanup:</b>
+<br>docker rm $(docker ps -qa)  # Working, cleans up active container instances
 <br>docker system prune
 <br>docker volume prune
 <br>docker volume rm $(docker volume ls -qf dangling=true)
