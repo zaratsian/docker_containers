@@ -69,7 +69,8 @@ RUN echo "syncLimit = 2" >> /zookeeper/conf/zoo.cfg
 ######################################################################################################
 
 # Install MiniConda and Python Packages
-RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /opt/miniconda3.sh \
+RUN yum install -y bzip2 \
+&& wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /opt/miniconda3.sh \
 && chmod +x /opt/miniconda3.sh          \
 && /opt/miniconda3.sh -b -p /miniconda3 \
 && rm /opt/miniconda3.sh                \
