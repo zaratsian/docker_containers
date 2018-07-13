@@ -1,0 +1,1 @@
+docker run -it -p 18888:8888 -p 19999:9999 <docker_image_id> bash
