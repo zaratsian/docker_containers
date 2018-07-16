@@ -13,3 +13,4 @@ docker build -t storm containers/storm
 docker build -t superset containers/superset
 docker build -t airflow containers/airflow
 docker build -t sparkling_water containers/spark_sparkling_water
+docker build -t ubuntu_mongo containers/ubuntu_mongo
