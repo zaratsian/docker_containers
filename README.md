@@ -14,6 +14,7 @@ Other containers / services incorporate:
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&bull; H2O Sparkling Water
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&bull; Apache Airflow
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&bull; Tensorflow
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&bull; MongoDB
 <br>
 <br>
 <br><b>Docker cleanup:</b>
