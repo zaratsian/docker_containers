@@ -6,7 +6,11 @@
 #   https://docs.docker.com/samples/library/mongo/
 #
 #   Build:
-#       docker build -t mongo_on_ubuntu .
+#       docker build -t ubuntu_mongo .
+#
+#	Run:
+#		docker run -it -p 18888:8888 -p 19999:9999 ubuntu_mongo bash
+#		docker run -it -p 18888:8888 -p 19999:9999 ubuntu_mongo
 #
 ###########################################################################
 
@@ -16,7 +20,7 @@ FROM ubuntu:xenial
 RUN groupadd -r mongodb && useradd -r -g mongodb mongodb
 
 RUN apt-get update \
-	&& apt-get install -y --no-install-recommends ca-certificates jq numactl wget bzip2 \
+	&& apt-get install -y --no-install-recommends ca-certificates jq numactl wget bzip2 net-tools \
 	&& rm -rf /var/lib/apt/lists/*
 
 # grab gosu for easy step-down from root (https://github.com/tianon/gosu/releases)
@@ -107,15 +111,15 @@ VOLUME /data/configdb
 
 RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /opt/miniconda3.sh \
 && chmod +x /opt/miniconda3.sh          \
-&& /opt/miniconda3.sh -b -p /miniconda3 \
+&& /opt/miniconda3.sh -b -p /opt/miniconda3 \
 && rm /opt/miniconda3.sh                \
-&& /miniconda3/bin/pip install          \
-    pymongo 							\
-	flask   							\
-	flask-login 						\
+&& /opt/miniconda3/bin/pip install      \
+    pymongo                             \
+	flask                               \
+	flask-login                         \
 	requests
 
-ENV PATH="/miniconda3/bin:$PATH" 
+ENV PATH="/opt/miniconda3/bin:$PATH"
 
 ###########################################################################
 #
@@ -131,7 +135,8 @@ COPY assets /assets
 #
 ###########################################################################
 
-EXPOSE 27017
-CMD ["mongod"]
+#RUN chmod +x /assets/start.sh
+#ENTRYPOINT /assets/start.sh
+ENTRYPOINT mongod
 
 #ZEND
